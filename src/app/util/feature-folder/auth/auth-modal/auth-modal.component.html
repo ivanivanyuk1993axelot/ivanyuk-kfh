@@ -1,0 +1,54 @@
+<h2 mat-dialog-title>{{ 'Authentication' | getLocalizedMessageContinuous$Pure | async }}</h2>
+
+<div mat-dialog-content>
+  <form [formGroup]="credentialsDataSource.formGroup">
+    <mat-form-field
+      *ngFor="let fieldData of credentialsDataSource.formFieldDataList"
+      class="w-100"
+    >
+      <input
+        [formControlName]="fieldData.fieldName"
+        [placeholder]="fieldData.label | getLocalizedMessageContinuous$Pure | async"
+        [type]="fieldData.type"
+        matInput
+      >
+    </mat-form-field>
+  </form>
+</div>
+
+<div
+  mat-dialog-actions
+>
+  <button
+    (click)="loginButtonClickEvent.emit()"
+    [class.hidden]="(authDataSource.isLoggedInContinuous$ | async)"
+    mat-button
+  >
+    <mat-icon>vpn_key</mat-icon>
+    {{ 'Log in' | getLocalizedMessageContinuous$Pure | async }}
+  </button>
+
+  <button
+    (click)="logoutButtonClickEvent.emit()"
+    [class.hidden]="!(authDataSource.isLoggedInContinuous$ | async)"
+    mat-button
+  >
+    <mat-icon>exit_to_app</mat-icon>
+    {{ 'Log out' | getLocalizedMessageContinuous$Pure | async }}
+  </button>
+
+  <button
+    mat-button
+  >
+    <mat-icon>person_add</mat-icon>
+    {{ 'Register' | getLocalizedMessageContinuous$Pure | async }}
+  </button>
+
+  <button
+    mat-button
+    mat-dialog-close
+  >
+    <mat-icon>cancel</mat-icon>
+    {{ 'Cancel' | getLocalizedMessageContinuous$Pure | async }}
+  </button>
+</div>

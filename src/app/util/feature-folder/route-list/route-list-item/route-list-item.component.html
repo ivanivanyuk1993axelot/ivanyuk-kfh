@@ -1,0 +1,57 @@
+<mat-expansion-panel
+  (expandedChange)="handleExpandedChange($event)"
+  *ngIf="childListBS$ | async; else noChildList"
+  [class.active]="matchesUrlBS$ | async"
+>
+  <mat-expansion-panel-header
+    [class.active]="matchesUrlBS$ | async"
+  >
+    <mat-panel-title>
+      <ng-container *ngTemplateOutlet="item"></ng-container>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+
+  <ng-template
+    matExpansionPanelContent
+  >
+    <mat-nav-list
+      [class.hidden]="!(isExpandedBS$ | async)"
+    >
+      <app-route-list-item
+        *ngFor="let childDataObject of childListBS$ | async"
+        [dataObject]="childDataObject"
+        [routeListComponent]="routeListComponent"
+      ></app-route-list-item>
+    </mat-nav-list>
+  </ng-template>
+</mat-expansion-panel>
+
+<ng-template #noChildList>
+  <div [class.active]="matchesUrlBS$ | async">
+    <div [class.active]="matchesUrlBS$ | async">
+      <ng-container *ngTemplateOutlet="item"></ng-container>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #item>
+  <a
+    (click)="$event.stopPropagation()"
+    *ngIf="urlBS$ | async; else noLinkItem"
+    [routerLink]="urlBS$ | async"
+    mat-list-item
+  >
+    <ng-container *ngTemplateOutlet="iconWithText"></ng-container>
+  </a>
+
+  <ng-template #noLinkItem>
+    <mat-list-item>
+      <ng-container *ngTemplateOutlet="iconWithText"></ng-container>
+    </mat-list-item>
+  </ng-template>
+
+  <ng-template #iconWithText>
+    <mat-icon *ngIf="iconCodeBS$ | async" mat-list-icon>{{ iconCodeBS$ | async }}</mat-icon>
+    <span>{{ displayTextBS$ | async }}</span>
+  </ng-template>
+</ng-template>
