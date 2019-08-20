@@ -13,6 +13,7 @@ import {AuthInterceptor} from './util/feature-folder/auth/interceptor/auth-inter
 import {AuthModule} from './util/feature-folder/auth/auth.module';
 import {NotificationModule} from './util/feature-folder/notification/notification.module';
 import {LocalizationModule} from './util/feature-folder/localization/localization.module';
+import {LogoModule} from './util/feature-folder/logo/logo.module';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -31,6 +32,7 @@ import {LocalizationModule} from './util/feature-folder/localization/localizatio
     RouteListModule,
     RouterModule,
     LocalizationModule,
+    LogoModule,
   ],
   providers: [
     [
