@@ -1,35 +1,65 @@
 <div
-  style="height: 50vh"
+  class="container-fluid"
 >
-  <iframe
-    allowfullscreen
-    frameborder="0"
-    height="100%"
-    src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJA7D80IKp0kYRj4KjFbps3tk&maptype=satellite&key=AIzaSyDL1qhOYE7tqaN1jxaVXvQosAZB31ANXQo"
-    style="border:0"
-    width="100%"
-  ></iframe>
+  <div
+    class="row"
+    style="height: 70vh;"
+  >
+    <div class="col-12 col-md">
+      <iframe
+        allowfullscreen
+        frameborder="0"
+        height="100%"
+        src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJA7D80IKp0kYRj4KjFbps3tk&maptype=satellite&key=AIzaSyDL1qhOYE7tqaN1jxaVXvQosAZB31ANXQo"
+        style="border:0"
+        width="100%"
+      ></iframe>
+    </div>
+    <div class="col-12 col-md-auto height-filler">
+      <div
+        class="height-filler__row"
+      >
+        <a
+          href="http://zhnews.ru/economy/agroculture/2017/11/24/v-fermerskom-xozyajstve-aleksandra-ivanyuka-odni-iz-luchshix-urozhaev/"
+          mat-button
+          target="_blank"
+        >{{ 'Press about us' | getLocalizedMessageContinuous$Pure | async }}</a>
+      </div>
+      <div class="height-filler__row-rest-height">
+        <iframe
+          height="100%"
+          src="http://zhnews.ru/economy/agroculture/2017/11/24/v-fermerskom-xozyajstve-aleksandra-ivanyuka-odni-iz-luchshix-urozhaev/"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="justify-content: center;">
+    <div class="col-auto mt-2">
+      <a
+        color="primary"
+        href="tel:+7-910-333-2521"
+        mat-raised-button
+      >
+        <mat-icon>phone</mat-icon>
+        {{ 'Call us' | getLocalizedMessageContinuous$Pure | async }}
+        <span>+7(910)333-25-21</span>
+      </a>
+    </div>
+
+    <div class="col-auto mt-2">
+      <a
+        color="primary"
+        href="mailto:ivanyuk-aleksander@yandex.ru"
+        mat-raised-button
+      >
+        <mat-icon>email</mat-icon>
+        {{ 'Write us' | getLocalizedMessageContinuous$Pure | async }}
+        <span>ivanyuk-aleksander@yandex.ru</span>
+      </a>
+    </div>
+  </div>
 </div>
-
-<a
-  color="primary"
-  href="tel:+7-910-333-2521"
-  mat-raised-button
->
-  <mat-icon>phone</mat-icon>
-  {{ 'Call us' | getLocalizedMessageContinuous$Pure | async }}
-  <span>+7(910)333-25-21</span>
-</a>
-
-<a
-  color="primary"
-  href="mailto:ivanyuk-aleksander@yandex.ru"
-  mat-raised-button
->
-  <mat-icon>email</mat-icon>
-  {{ 'Write us' | getLocalizedMessageContinuous$Pure | async }}
-  <span>ivanyuk-aleksander@yandex.ru</span>
-</a>
 
 <img
   *ngFor="let src of [
@@ -38,7 +68,7 @@
   '/assets/images/3.jpeg'
   ]"
   [src]="src"
-  style="height: auto; width: 10rem"
+  style="height: auto; width: 10rem; max-width: 33.333%"
 >
 
 {{ 'Press about us' | getLocalizedMessageContinuous$Pure | async }}
@@ -51,14 +81,10 @@
     ]"
     [href]="url"
     mat-list-item
+    style="overflow-x: hidden; text-overflow: ellipsis"
     target="_blank"
   >
     <mat-icon>assignment</mat-icon>&nbsp;
     {{ url }}
   </a>
 </mat-nav-list>
-
-<iframe
-  src="http://zhnews.ru/economy/agroculture/2017/11/24/v-fermerskom-xozyajstve-aleksandra-ivanyuka-odni-iz-luchshix-urozhaev/"
-  height="380px"
-></iframe>
