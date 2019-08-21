@@ -10,3 +10,50 @@
     width="100%"
   ></iframe>
 </div>
+
+<a
+  color="primary"
+  href="tel:+7-910-333-2521"
+  mat-raised-button
+>
+  <mat-icon>phone</mat-icon>
+  {{ 'Call us' | getLocalizedMessageContinuous$Pure | async }}
+  <span>+7(910)333-25-21</span>
+</a>
+
+<a
+  color="primary"
+  href="mailto:ivanyuk-aleksander@yandex.ru"
+  mat-raised-button
+>
+  <mat-icon>email</mat-icon>
+  {{ 'Write us' | getLocalizedMessageContinuous$Pure | async }}
+  <span>ivanyuk-aleksander@yandex.ru</span>
+</a>
+
+<img
+  *ngFor="let src of [
+  '/assets/images/1.jpg',
+  '/assets/images/2.jpeg',
+  '/assets/images/3.jpeg'
+  ]"
+  [src]="src"
+  style="height: auto; width: 10rem"
+>
+
+{{ 'Press about us' | getLocalizedMessageContinuous$Pure | async }}
+<mat-nav-list>
+  <a
+    *ngFor="let url of [
+    'http://jukovka.org/?p=8231',
+    'http://zhnews.ru/economy/agroculture/2017/11/24/v-fermerskom-xozyajstve-aleksandra-ivanyuka-odni-iz-luchshix-urozhaev/',
+    'http://zhnews.ru/old/-p=91.htm'
+    ]"
+    [href]="url"
+    mat-list-item
+    target="_blank"
+  >
+    <mat-icon>assignment</mat-icon>&nbsp;
+    {{ url }}
+  </a>
+</mat-nav-list>
