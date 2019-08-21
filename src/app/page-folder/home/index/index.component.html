@@ -27,8 +27,11 @@
       </div>
       <div class="height-filler__row-rest-height">
         <iframe
+          allowfullscreen
+          frameborder="0"
           height="100%"
           src="http://zhnews.ru/economy/agroculture/2017/11/24/v-fermerskom-xozyajstve-aleksandra-ivanyuka-odni-iz-luchshix-urozhaev/"
+          style="border:0"
         ></iframe>
       </div>
     </div>
@@ -59,32 +62,46 @@
       </a>
     </div>
   </div>
-</div>
 
-<img
-  *ngFor="let src of [
-  '/assets/images/1.jpg',
-  '/assets/images/2.jpeg',
-  '/assets/images/3.jpeg'
-  ]"
-  [src]="src"
-  style="height: auto; width: 10rem; max-width: 33.333%"
->
-
-{{ 'Press about us' | getLocalizedMessageContinuous$Pure | async }}
-<mat-nav-list>
-  <a
-    *ngFor="let url of [
-    'http://jukovka.org/?p=8231',
-    'http://zhnews.ru/economy/agroculture/2017/11/24/v-fermerskom-xozyajstve-aleksandra-ivanyuka-odni-iz-luchshix-urozhaev/',
-    'http://zhnews.ru/old/-p=91.htm'
-    ]"
-    [href]="url"
-    mat-list-item
-    style="overflow-x: hidden; text-overflow: ellipsis"
-    target="_blank"
+  <div
+    class="row mt-2"
   >
-    <mat-icon>assignment</mat-icon>&nbsp;
-    {{ url }}
-  </a>
-</mat-nav-list>
+    <div class="col-auto">
+      <img
+        *ngFor="let src of [
+        '/assets/images/1.jpg',
+        '/assets/images/2.jpeg',
+        '/assets/images/3.jpeg'
+        ]"
+        [src]="src"
+        style="height: auto; width: 10rem; max-width: 33.333%"
+      >
+    </div>
+
+    <div class="col">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{ 'Press about us' | getLocalizedMessageContinuous$Pure | async }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-nav-list>
+            <a
+              *ngFor="let url of [
+              'http://jukovka.org/?p=8231',
+              'http://zhnews.ru/economy/agroculture/2017/11/24/v-fermerskom-xozyajstve-aleksandra-ivanyuka-odni-iz-luchshix-urozhaev/',
+              'http://zhnews.ru/old/-p=91.htm'
+              ]"
+              [href]="url"
+              mat-list-item
+              style="text-overflow: ellipsis"
+              target="_blank"
+            >
+              <mat-icon>assignment</mat-icon>&nbsp;
+              {{ url }}
+            </a>
+          </mat-nav-list>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 
 import {HomeRoutingModule} from './home-routing.module';
 import {IndexComponent} from './index/index.component';
-import {MatButtonModule, MatIconModule, MatListModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatIconModule, MatListModule} from '@angular/material';
 import {LocalizationModule} from '../../util/feature-folder/localization/localization.module';
 import {CommonModule} from '@angular/common';
 
@@ -15,6 +15,7 @@ import {CommonModule} from '@angular/common';
     CommonModule,
     MatIconModule,
     MatListModule,
+    MatCardModule,
   ],
 })
 export class HomeModule {
